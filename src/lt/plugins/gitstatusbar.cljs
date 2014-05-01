@@ -28,6 +28,11 @@
 
 (def repos (atom {}))
 
+(def ss (atom {}))
+
+(def git (atom {}))
+
+
 (defn update-repo [path change]
   (when path
     (swap! repos update-in [path] merge change)))
@@ -63,21 +68,6 @@
      [:i.fa.fa-code-fork]
      (-> container ::repo :branch)]
     [:span]))
-
-(object/object* ::container
-                :init (fn [this]
-                        (when this
-                          ;; span hack to prevent extra space w/ an empty li element
-                          [:span
-                           (bound this render-branch)])))
-
-(def container (object/create ::container))
-
-(statusbar/add-statusbar-item container)
-
-(def ss (atom {}))
-
-(def git (atom {}))
 
 (defn slurp [path]
   (.readFileSync fs path #js {:encoding "utf-8"}))
@@ -118,6 +108,19 @@
        first
        ))
 
+(object/object* ::container
+                :init (fn [this]
+                        (when workspace/current-ws
+                          (-> @workspace/current-ws :folders watch-dirs))
+                        (when this
+                          ;; span hack to prevent extra space w/ an empty li element
+                          [:span
+                           (bound this render-branch)])))
+
+(def container (object/create ::container))
+
+(statusbar/add-statusbar-item container)
+
 ;; Container
 ;;
 ;; Questions
@@ -126,7 +129,7 @@
 ;; Updates from:
 ;; * x switch editor panes
 ;; * x fs change / command line
-;; * projects added / removed from workspace
+;; * x projects added / removed from workspace
 ;;
 ;; Change flow:
 ;; editor switch \                   / workspace dirty indicator
