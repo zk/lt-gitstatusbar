@@ -8,6 +8,10 @@ Git branch / status will only show for files that are in directories in your wor
 
 * The `git` binary must be on your PATH
 
+## Usage
+
+* Install through the plugin manager, and restart LT.
+
 ## License
 
 Copyright Zachary Kim 2014
