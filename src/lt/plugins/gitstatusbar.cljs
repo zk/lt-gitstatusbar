@@ -110,8 +110,6 @@
 
 (object/object* ::container
                 :init (fn [this]
-                        (when workspace/current-ws
-                          (-> @workspace/current-ws :folders watch-dirs))
                         (when this
                           ;; span hack to prevent extra space w/ an empty li element
                           [:span
@@ -169,4 +167,8 @@
                                            :path
                                            path->repo-path
                                            (get n)))})))
+
+(when workspace/current-ws
+  (-> @workspace/current-ws :folders watch-dirs))
+
 
