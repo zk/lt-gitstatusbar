@@ -1,0 +1,12 @@
+{:+ {:app [(:lt.objs.plugins/load-js "git status bar_compiled.js" true)
+           (:lt.objs.plugins/load-css "resources/css/gitstatusbar.css")
+           (:lt.objs.plugins/load-css "resources/css/font-awesome.min.css")]
+     :editor [:lt.plugins.gitstatusbar/attach
+              :lt.plugins.gitstatusbar/watch-editor]
+     :tabs [:lt.plugins.gitstatusbar/attach]
+     :tabset [:lt.plugins.gitstatusbar/attach]
+     :tabset.tab [:lt.plugins.gitstatusbar/attach]
+     :workspace [:lt.plugins.gitstatusbar/workspace]
+     :editor.active []
+     :ltscratch.xray []
+     :xray.selector []}}
