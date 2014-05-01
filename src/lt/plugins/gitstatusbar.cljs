@@ -32,7 +32,6 @@
 
 (def git (atom {}))
 
-
 (defn update-repo [path change]
   (when path
     (swap! repos update-in [path] merge change)))
