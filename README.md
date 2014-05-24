@@ -11,7 +11,7 @@ Master branch, with unstaged changes in repo:
 
 ![](http://f.cl.ly/items/102p060I1l3Y350l321b/Screen%20Shot%202014-05-01%20at%2011.22.43%20AM.png)
 
-**Git branch / status will only show for files that are in directories in your workspace.**
+**Git branch / status will only show for files that are in repositories whose root is in your workspace.**
 
 ## Prereqs
 
